@@ -21,7 +21,7 @@ export class ApiServer {
   constructor(private configure: (express: Express) => Router = (express => {
     const router = Router();
     express.use('/', router);
-    express.use(json({strict: true}))
+    router.use(json({strict: true}))
     return router;
   }), private port = 3000) {
   }
