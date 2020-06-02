@@ -2,7 +2,7 @@ import { Class, DependencyContainer, IllegalArgumentError } from './injection';
 import { ApiRequest, ControllerOptions, RestrictFn } from './types';
 import { MetadataKey } from './decorators';
 import * as express from 'express';
-import { Express, Request, Response, Router } from 'express';
+import { Express, json, Request, Response, Router } from 'express';
 import * as path from 'path';
 import { RequestError } from './errors';
 import * as url from 'url';
@@ -21,6 +21,7 @@ export class ApiServer {
   constructor(private configure: (express: Express) => Router = (express => {
     const router = Router();
     express.use('/', router);
+    express.use(json({strict: true}))
     return router;
   }), private port = 3000) {
   }
