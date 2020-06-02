@@ -25,7 +25,7 @@ export class FullResponse {
 
   public writeToResponse(res: Response) {
     res.status(this.statusCode);
-    for(const [key, value] of Object.keys(this.headers))
+    for(const [key, value] of Object.entries(this.headers))
       res.setHeader(key, value);
 
     res.send(this.body);

@@ -46,7 +46,7 @@ export class ApiServer {
     return this;
   }
 
-  registerDependency(value: any, instanceOrProto: any): this {
+  registerDependency(value: any, instanceOrProto?: any): this {
     this.dependencies.registerDependency(value, instanceOrProto);
     return this;
   }
