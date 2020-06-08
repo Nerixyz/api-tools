@@ -15,7 +15,7 @@ export class ApiServer {
   private static apiDebug = debug('api');
   dependencies = new DependencyContainer();
   controllers: ControllerInfo[] = [];
-  server = express();
+  server: Express = express();
   rawServer?: http.Server;
 
   constructor(private configure: (express: Express) => Router = (express => {
